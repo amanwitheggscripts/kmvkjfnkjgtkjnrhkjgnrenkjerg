@@ -1,0 +1,467 @@
+_G.HexPlayers = false
+
+
+local function HexGui()
+-- Instances:
+
+local HexGui = Instance.new("ScreenGui")
+local DragFrame = Instance.new("Frame")
+local Frame1 = Instance.new("Frame")
+local MadeBy = Instance.new("TextLabel")
+local TargetName = Instance.new("TextBox")
+local UICorner = Instance.new("UICorner")
+local UICorner_2 = Instance.new("UICorner")
+local Title = Instance.new("TextLabel")
+local InsertTarget = Instance.new("TextButton")
+local RemoveTarget = Instance.new("TextButton")
+local Hex = Instance.new("TextButton")
+local UICorner_3 = Instance.new("UICorner")
+local UnHex = Instance.new("TextButton")
+local UICorner_4 = Instance.new("UICorner")
+
+--Properties:
+
+HexGui.Name = "HexGui"
+HexGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+
+DragFrame.Name = "DragFrame"
+DragFrame.Parent = HexGui
+DragFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+DragFrame.BackgroundTransparency = 1.000
+DragFrame.Position = UDim2.new(0.123623013, 0, 0.112627983, 0)
+DragFrame.Size = UDim2.new(0, 303, 0, 194)
+
+Frame1.Name = "Frame1"
+Frame1.Parent = DragFrame
+Frame1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Frame1.Position = UDim2.new(0.0924092382, 0, 0.113402061, 0)
+Frame1.Size = UDim2.new(0, 247, 0, 149)
+
+MadeBy.Name = "MadeBy"
+MadeBy.Parent = Frame1
+MadeBy.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+MadeBy.BackgroundTransparency = 1.000
+MadeBy.Position = UDim2.new(0.190283403, 0, 0.885905981, 0)
+MadeBy.Size = UDim2.new(0, 153, 0, 11)
+MadeBy.Font = Enum.Font.SourceSans
+MadeBy.Text = "Made By: Anon"
+MadeBy.TextColor3 = Color3.fromRGB(66, 66, 66)
+MadeBy.TextSize = 14.000
+
+TargetName.Name = "TargetName"
+TargetName.Parent = Frame1
+TargetName.BackgroundColor3 = Color3.fromRGB(131, 131, 131)
+TargetName.Position = UDim2.new(0.214574903, 0, 0.597315431, 0)
+TargetName.Size = UDim2.new(0, 140, 0, 32)
+TargetName.Font = Enum.Font.SourceSans
+TargetName.PlaceholderColor3 = Color3.fromRGB(57, 72, 126)
+TargetName.PlaceholderText = "Insert Name Here"
+TargetName.Text = ""
+TargetName.TextColor3 = Color3.fromRGB(0, 0, 0)
+TargetName.TextSize = 14.000
+
+UICorner.Parent = TargetName
+
+UICorner_2.Parent = Frame1
+
+Title.Name = "Title"
+Title.Parent = Frame1
+Title.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Title.BackgroundTransparency = 1.000
+Title.BorderColor3 = Color3.fromRGB(27, 42, 53)
+Title.Position = UDim2.new(0.161943316, 0, 0.0469798669, 0)
+Title.Size = UDim2.new(0, 166, 0, 28)
+Title.Font = Enum.Font.SourceSans
+Title.Text = "HexGui"
+Title.TextColor3 = Color3.fromRGB(65, 74, 239)
+Title.TextScaled = true
+Title.TextSize = 14.000
+Title.TextWrapped = true
+
+InsertTarget.Name = "InsertTarget"
+InsertTarget.Parent = Frame1
+InsertTarget.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+InsertTarget.BorderColor3 = Color3.fromRGB(255, 255, 255)
+InsertTarget.Position = UDim2.new(0.0607287437, 0, 0.281879187, 0)
+InsertTarget.Size = UDim2.new(0, 83, 0, 32)
+InsertTarget.Font = Enum.Font.SciFi
+InsertTarget.Text = "InsertTarget"
+InsertTarget.TextColor3 = Color3.fromRGB(35, 65, 235)
+InsertTarget.TextSize = 12.000
+
+RemoveTarget.Name = "RemoveTarget"
+RemoveTarget.Parent = Frame1
+RemoveTarget.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+RemoveTarget.BorderColor3 = Color3.fromRGB(255, 255, 255)
+RemoveTarget.Position = UDim2.new(0.603238881, 0, 0.281879187, 0)
+RemoveTarget.Size = UDim2.new(0, 83, 0, 32)
+RemoveTarget.Font = Enum.Font.SciFi
+RemoveTarget.Text = "RemoveTarget"
+RemoveTarget.TextColor3 = Color3.fromRGB(35, 65, 235)
+RemoveTarget.TextSize = 12.000
+
+Hex.Name = "Hex"
+Hex.Parent = Frame1
+Hex.BackgroundColor3 = Color3.fromRGB(61, 77, 180)
+Hex.Position = UDim2.new(0.421052665, 0, 0.261744976, 0)
+Hex.Size = UDim2.new(0, 39, 0, 38)
+Hex.Font = Enum.Font.SourceSans
+Hex.Text = "ON"
+Hex.TextColor3 = Color3.fromRGB(0, 0, 0)
+Hex.TextSize = 14.000
+
+UICorner_3.Parent = Hex
+
+UnHex.Name = "UnHex"
+UnHex.Parent = Frame1
+UnHex.BackgroundColor3 = Color3.fromRGB(61, 77, 180)
+UnHex.Position = UDim2.new(0.421052665, 0, 0.261744976, 0)
+UnHex.Size = UDim2.new(0, 39, 0, 38)
+UnHex.Visible = false
+UnHex.Font = Enum.Font.SourceSans
+UnHex.Text = "OFF"
+UnHex.TextColor3 = Color3.fromRGB(0, 0, 0)
+UnHex.TextSize = 14.000
+
+UICorner_4.Parent = UnHex
+
+-- Scripts:
+
+local function BSEFCT_fake_script() -- HexGui.Script 
+	local script = Instance.new('Script', HexGui)
+	
+	--gethex
+	if game.PlaceId == 26838733 then
+	    if not game.Players.LocalPlayer.Backpack:FindFirstChild("HexSpitter") and not game.Players.LocalPlayer.Character:FindFirstChild("HexSpitter") then
+            game:GetService("ReplicatedStorage").Remotes.ToggleAsset:InvokeServer(243007180)
+        end
+	end
+	
+	--Hide
+	game:GetService("UserInputService").InputBegan:Connect(function(input, gameProcessedEvent)
+	    if (input.KeyCode == Enum.KeyCode.P and game:GetService("UserInputService"):IsKeyDown(Enum.KeyCode.LeftControl)) or (input.KeyCode == Enum.KeyCode.LeftControl and game:GetService("UserInputService"):IsKeyDown(Enum.KeyCode.P)) then
+		    Frame1.Visible = not Frame1.Visible
+	    end
+    end)
+	
+	--targetstable
+	local Targets = {}
+
+	--frame
+	frame = script.Parent.DragFrame
+	frame.Draggable = true
+	frame.Active = true
+	frame.Selectable = true
+	
+	--startmessage
+    game.StarterGui:SetCore("ChatMakeSystemMessage", {
+    Text = "Thank you for using my Gui\nPress Ctrl + P to hide Gui";
+    Color = Color3.fromRGB(69, 38, 170);
+    Font = Enum.Font.SourceSansBold;
+    FontSize = Enum.FontSize.Size96;
+    })
+	
+	--TargetName
+	TargetName:GetPropertyChangedSignal("Text"):Connect(function()
+		for i = 1, #game.Players:GetPlayers() do
+			if string.lower(string.sub(game.Players:GetPlayers()[i].Name, 1, string.len(TargetName.Text))) == string.lower(TargetName.Text) then
+				Target = game.Players:GetPlayers()[i].Name
+				break
+			end
+		end
+	end)
+	
+	
+	--RemoveTarget
+	RemoveTarget.MouseButton1Down:connect(function()
+		local TargetRemove = table.find(Targets, Target)
+		table.remove(Targets, TargetRemove)
+		for i,v in pairs(Targets) do
+			print(v)
+		end
+		TargetName.Text = ""
+	end)
+	
+	--InsertTarget
+	InsertTarget.MouseButton1Down:connect(function()
+		if table.find(Targets, Target) then
+			print "Already In Table"
+		else
+			table.insert(Targets, Target)
+		end
+		for i,v in pairs(Targets) do
+			print(v)
+		end
+		TargetName.Text = ""
+	end)
+	
+	--Hex
+	Hex.MouseButton1Down:connect(function()
+		_G.HexPlayers = true
+		game.Players.LocalPlayer.Backpack.HexSpitter.Parent = game.Players.LocalPlayer.Character
+		for i=0,100 do
+			spawn(function()
+				while _G.HexPlayers do
+					game.RunService.RenderStepped:wait()
+					pcall(function()
+						for i,v in pairs(game.Players:GetChildren()) do
+							if table.find(Targets, v.Name) then
+								game.Players.LocalPlayer.Character.HexSpitter.Remotes.ServerControl:InvokeServer("RayHit",{["Position"] = v.Character.Head.Position,["Hit"] = v.Character.Head})
+							end
+						end
+					end)
+				end
+			end)
+		end
+	end)
+	Hex.MouseButton1Down:connect(function()
+		Hex.Visible = false
+		UnHex.Visible = true
+	end)
+	
+	--UnHex
+	UnHex.MouseButton1Down:connect(function()
+		_G.HexPlayers = false
+		game.Players.LocalPlayer.Character.HexSpitter.Parent = game.Players.LocalPlayer.Backpack
+	end)
+	UnHex.MouseButton1Down:connect(function()
+		Hex.Visible = true
+		UnHex.Visible = false
+	end)
+end
+coroutine.wrap(BSEFCT_fake_script)()
+end
+
+local function HexGui2()
+-- Instances:
+
+local HexGui = Instance.new("ScreenGui")
+local DragFrame = Instance.new("Frame")
+local Frame1 = Instance.new("Frame")
+local MadeBy = Instance.new("TextLabel")
+local TargetName = Instance.new("TextBox")
+local UICorner = Instance.new("UICorner")
+local UICorner_2 = Instance.new("UICorner")
+local Title = Instance.new("TextLabel")
+local InsertTarget = Instance.new("TextButton")
+local RemoveTarget = Instance.new("TextButton")
+local Hex = Instance.new("TextButton")
+local UICorner_3 = Instance.new("UICorner")
+local UnHex = Instance.new("TextButton")
+local UICorner_4 = Instance.new("UICorner")
+
+--Properties:
+
+HexGui.Name = "HexGui"
+HexGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+
+DragFrame.Name = "DragFrame"
+DragFrame.Parent = HexGui
+DragFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+DragFrame.BackgroundTransparency = 1.000
+DragFrame.Position = UDim2.new(0.123623013, 0, 0.112627983, 0)
+DragFrame.Size = UDim2.new(0, 303, 0, 194)
+
+Frame1.Name = "Frame1"
+Frame1.Parent = DragFrame
+Frame1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Frame1.Position = UDim2.new(0.0924092382, 0, 0.113402061, 0)
+Frame1.Size = UDim2.new(0, 247, 0, 149)
+
+MadeBy.Name = "MadeBy"
+MadeBy.Parent = Frame1
+MadeBy.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+MadeBy.BackgroundTransparency = 1.000
+MadeBy.Position = UDim2.new(0.190283403, 0, 0.885905981, 0)
+MadeBy.Size = UDim2.new(0, 153, 0, 11)
+MadeBy.Font = Enum.Font.SourceSans
+MadeBy.Text = "Made By: Anon"
+MadeBy.TextColor3 = Color3.fromRGB(66, 66, 66)
+MadeBy.TextSize = 14.000
+
+TargetName.Name = "TargetName"
+TargetName.Parent = Frame1
+TargetName.BackgroundColor3 = Color3.fromRGB(131, 131, 131)
+TargetName.Position = UDim2.new(0.214574903, 0, 0.597315431, 0)
+TargetName.Size = UDim2.new(0, 140, 0, 32)
+TargetName.Font = Enum.Font.SourceSans
+TargetName.PlaceholderColor3 = Color3.fromRGB(57, 72, 126)
+TargetName.PlaceholderText = "Insert Name Here"
+TargetName.Text = ""
+TargetName.TextColor3 = Color3.fromRGB(0, 0, 0)
+TargetName.TextSize = 14.000
+
+UICorner.Parent = TargetName
+
+UICorner_2.Parent = Frame1
+
+Title.Name = "Title"
+Title.Parent = Frame1
+Title.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Title.BackgroundTransparency = 1.000
+Title.BorderColor3 = Color3.fromRGB(27, 42, 53)
+Title.Position = UDim2.new(0.161943316, 0, 0.0469798669, 0)
+Title.Size = UDim2.new(0, 166, 0, 28)
+Title.Font = Enum.Font.SourceSans
+Title.Text = "HexGui"
+Title.TextColor3 = Color3.fromRGB(65, 74, 239)
+Title.TextScaled = true
+Title.TextSize = 14.000
+Title.TextWrapped = true
+
+InsertTarget.Name = "InsertTarget"
+InsertTarget.Parent = Frame1
+InsertTarget.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+InsertTarget.BorderColor3 = Color3.fromRGB(255, 255, 255)
+InsertTarget.Position = UDim2.new(0.0607287437, 0, 0.281879187, 0)
+InsertTarget.Size = UDim2.new(0, 83, 0, 32)
+InsertTarget.Font = Enum.Font.SciFi
+InsertTarget.Text = "InsertTarget"
+InsertTarget.TextColor3 = Color3.fromRGB(35, 65, 235)
+InsertTarget.TextSize = 12.000
+
+RemoveTarget.Name = "RemoveTarget"
+RemoveTarget.Parent = Frame1
+RemoveTarget.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+RemoveTarget.BorderColor3 = Color3.fromRGB(255, 255, 255)
+RemoveTarget.Position = UDim2.new(0.603238881, 0, 0.281879187, 0)
+RemoveTarget.Size = UDim2.new(0, 83, 0, 32)
+RemoveTarget.Font = Enum.Font.SciFi
+RemoveTarget.Text = "RemoveTarget"
+RemoveTarget.TextColor3 = Color3.fromRGB(35, 65, 235)
+RemoveTarget.TextSize = 12.000
+
+Hex.Name = "Hex"
+Hex.Parent = Frame1
+Hex.BackgroundColor3 = Color3.fromRGB(61, 77, 180)
+Hex.Position = UDim2.new(0.421052665, 0, 0.261744976, 0)
+Hex.Size = UDim2.new(0, 39, 0, 38)
+Hex.Font = Enum.Font.SourceSans
+Hex.Text = "ON"
+Hex.TextColor3 = Color3.fromRGB(0, 0, 0)
+Hex.TextSize = 14.000
+
+UICorner_3.Parent = Hex
+
+UnHex.Name = "UnHex"
+UnHex.Parent = Frame1
+UnHex.BackgroundColor3 = Color3.fromRGB(61, 77, 180)
+UnHex.Position = UDim2.new(0.421052665, 0, 0.261744976, 0)
+UnHex.Size = UDim2.new(0, 39, 0, 38)
+UnHex.Visible = false
+UnHex.Font = Enum.Font.SourceSans
+UnHex.Text = "OFF"
+UnHex.TextColor3 = Color3.fromRGB(0, 0, 0)
+UnHex.TextSize = 14.000
+
+UICorner_4.Parent = UnHex
+
+-- Scripts:
+
+local function BSEFCT_fake_script() -- HexGui.Script 
+	local script = Instance.new('Script', HexGui)
+	
+	--gethex
+	if game.PlaceId == 26838733 then
+	    if not game.Players.LocalPlayer.Backpack:FindFirstChild("HexSpitter") and not game.Players.LocalPlayer.Character:FindFirstChild("HexSpitter") then
+            game:GetService("ReplicatedStorage").Remotes.ToggleAsset:InvokeServer(243007180)
+        end
+	end
+	
+	--Hide
+	game:GetService("UserInputService").InputBegan:Connect(function(input, gameProcessedEvent)
+	    if (input.KeyCode == Enum.KeyCode.P and game:GetService("UserInputService"):IsKeyDown(Enum.KeyCode.LeftControl)) or (input.KeyCode == Enum.KeyCode.LeftControl and game:GetService("UserInputService"):IsKeyDown(Enum.KeyCode.P)) then
+		    Frame1.Visible = not Frame1.Visible
+	    end
+    end)
+	
+	--targetstable
+	local Targets = {}
+
+	--frame
+	frame = script.Parent.DragFrame
+	frame.Draggable = true
+	frame.Active = true
+	frame.Selectable = true
+	
+	--TargetName
+	TargetName:GetPropertyChangedSignal("Text"):Connect(function()
+		for i = 1, #game.Players:GetPlayers() do
+			if string.lower(string.sub(game.Players:GetPlayers()[i].Name, 1, string.len(TargetName.Text))) == string.lower(TargetName.Text) then
+				Target = game.Players:GetPlayers()[i].Name
+				break
+			end
+		end
+	end)
+	
+	
+	--RemoveTarget
+	RemoveTarget.MouseButton1Down:connect(function()
+		local TargetRemove = table.find(Targets, Target)
+		table.remove(Targets, TargetRemove)
+		for i,v in pairs(Targets) do
+			print(v)
+		end
+		TargetName.Text = ""
+	end)
+	
+	--InsertTarget
+	InsertTarget.MouseButton1Down:connect(function()
+		if table.find(Targets, Target) then
+			print "Already In Table"
+		else
+			table.insert(Targets, Target)
+		end
+		for i,v in pairs(Targets) do
+			print(v)
+		end
+		TargetName.Text = ""
+	end)
+	
+	--Hex
+	Hex.MouseButton1Down:connect(function()
+		_G.HexPlayers = true
+		game.Players.LocalPlayer.Backpack.HexSpitter.Parent = game.Players.LocalPlayer.Character
+		for i=0,100 do
+			spawn(function()
+				while _G.HexPlayers do
+					game.RunService.RenderStepped:wait()
+					pcall(function()
+						for i,v in pairs(game.Players:GetChildren()) do
+							if table.find(Targets, v.Name) then
+								game.Players.LocalPlayer.Character.HexSpitter.Remotes.ServerControl:InvokeServer("RayHit",{["Position"] = v.Character.Head.Position,["Hit"] = v.Character.Head})
+							end
+						end
+					end)
+				end
+			end)
+		end
+	end)
+	Hex.MouseButton1Down:connect(function()
+		Hex.Visible = false
+		UnHex.Visible = true
+	end)
+	
+	--UnHex
+	UnHex.MouseButton1Down:connect(function()
+		_G.HexPlayers = false
+		game.Players.LocalPlayer.Character.HexSpitter.Parent = game.Players.LocalPlayer.Backpack
+	end)
+	UnHex.MouseButton1Down:connect(function()
+		Hex.Visible = true
+		UnHex.Visible = false
+	end)
+end
+coroutine.wrap(BSEFCT_fake_script)()
+end
+for i,v in pairs(game.Players.LocalPlayer.PlayerGui:GetChildren()) do
+	if v.Name == "HexGui" then
+		v:Remove()
+	end
+end
+if getgenv().Enabled then
+    HexGui2()
+else
+    HexGui()
+    getgenv().Enabled = true
+end
